@@ -104,13 +104,83 @@ Contact us if you are interested in our Enterprise plan for large organizations 
 
 ## Local Development
 
-### Requirements
+### Requirements 必装软件
 
-To run Documenso locally, you will need
+To run Documenso locally, you will need 如果您想在本地安装Documenso ，必须具备以下环境：
 
 - Node.js (v18 or above)
 - Postgres SQL Database
 - Docker (optional)
+  
+建议安装宝塔面板
+
+以阿里云为例，使用以下命令安装
+  
+  ```sh
+  yum install -y wget && wget -O install.sh https://download.bt.cn/install/install_6.0.sh && sh install.sh ed8484bec
+  ```
+
+  更多请查看官方网站 [https://www.bt.cn/new/download.html](https://www.bt.cn/new/download.html)
+
+  安装完成以后，可在后台安装 Node.js 、Postgres SQL Database，都是中文界面化，非常方便。
+
+  ---
+
+  在 CentOS 上安装 Docker 可以按照以下步骤进行：
+
+1. 卸载旧版本（如果有）
+
+   ```
+   sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+   ```
+
+2. 安装所需的软件包
+
+   ```
+   sudo yum install -y yum-utils
+   ```
+
+3. 设置 Docker 稳定版仓库
+
+   ```
+   sudo yum-config-manager \
+      --add-repo \
+      https://download.docker.com/linux/centos/docker-ce.repo
+   ```
+
+4. 安装 Docker 引擎
+
+   ```
+   sudo yum install docker-ce docker-ce-cli containerd.io
+   ```
+
+5. 启动 Docker 服务
+
+   ```
+   sudo systemctl start docker
+   ```
+
+6. 设置 Docker 服务开机自启
+
+   ```
+   sudo systemctl enable docker
+   ```
+
+安装完成后，您可以使用 `docker version` 命令来验证 Docker 是否安装成功。 
+
+----
+
+  如果你想更换 npm 的源（例如更换为淘宝源以加速下载），可以使用以下命令：
+  ```sh
+  npm config set registry https://registry.npm.taobao.org
+  ```
 
 ### Developer Quickstart
 
