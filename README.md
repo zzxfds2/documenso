@@ -122,83 +122,48 @@ To run Documenso locally, you will need 如果您想在本地安装Documenso ，
 
   更多请查看官方网站 [https://www.bt.cn/new/download.html](https://www.bt.cn/new/download.html)
 
-  安装完成以后，可在后台安装 Node.js 、Postgres SQL Database，都是中文界面化，非常方便。
+  安装完成以后，可在后台安装 Node.js 、Postgres SQL Database、Docker，都是中文界面化，非常方便。
+
 
   ---
 
-  在 CentOS 上安装 Docker 可以按照以下步骤进行：
-
-1. 卸载旧版本（如果有）
-
-   ```
-   sudo yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-engine
-   ```
-
-2. 安装所需的软件包
-
-   ```
-   sudo yum install -y yum-utils
-   ```
-
-3. 设置 Docker 稳定版仓库
-
-   ```
-   sudo yum-config-manager \
-      --add-repo \
-      https://download.docker.com/linux/centos/docker-ce.repo
-   ```
-
-4. 安装 Docker 引擎
-
-   ```
-   sudo yum install docker-ce docker-ce-cli containerd.io
-   ```
-
-5. 启动 Docker 服务
-
-   ```
-   sudo systemctl start docker
-   ```
-
-6. 设置 Docker 服务开机自启
-
-   ```
-   sudo systemctl enable docker
-   ```
-
-安装完成后，您可以使用 `docker version` 命令来验证 Docker 是否安装成功。 
-
-----
-
   如果你想更换 npm 的源（例如更换为淘宝源以加速下载），可以使用以下命令：
+  
   ```sh
   npm config set registry https://registry.npm.taobao.org
   ```
 
-### Developer Quickstart
+### Developer Quickstart 快速开始
 
 > **Note**: This is a quickstart for developers. It assumes that you have both [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/) installed on your machine.
+> **Note**: 如果您想快速开始，您必须在您的服务器上安装 [docker](https://docs.docker.com/get-docker/) 和 [docker-compose](https://docs.docker.com/compose/) ，安装方式看上面。
 
 Want to get up and running quickly? Follow these steps:
 
+请按照下步骤操作：
+
 1. [Fork this repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) to your GitHub account.
 
+   Fork镜像到你的Github，试试上这一步是可以忽略的。
+
 After forking the repository, clone it to your local device by using the following command:
+
+Fork到你的Github后，执行如下命令：
 
 ```sh
 git clone https://github.com/<your-username>/documenso
 ```
+如果忽略了上一步，可以直接执行：
+
+```sh
+git clone https://github.com/documenso/documenso
+```
 
 2. Set up your `.env` file using the recommendations in the `.env.example` file. Alternatively, just run `cp .env.example .env` to get started with our handpicked defaults.
 
-3. Run `npm run dx` in the root directory
+使用`cp .env.example .env`命令，复制配置文件。
+
+3.Run `npm run dx` in the root directory
 
    - This will spin up a postgres database and inbucket mailserver in a docker container.
 
